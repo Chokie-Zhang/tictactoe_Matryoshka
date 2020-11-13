@@ -1,3 +1,4 @@
+import tkinter as tk
 import turtle
 
 class Grid(object):
@@ -7,18 +8,6 @@ class Grid(object):
         # self.init_nb()
         self.player = 9
         self.size = -1
-    
-    # def init_nb(self):
-    #     self.nb = []
-    #     pos_list = [(i, j) for j in list(range(-1, 2))[::-1] for i in range(-1, 2)]
-    #     x, y = self.pos
-    #     x_dir = [0, -1, 0, 1]
-    #     y_dir = [1, 0, -1, 0]
-    #     for xd, yd in zip(x_dir, y_dir):
-    #         nb_x = x + xd
-    #         nb_y = y + yd
-    #         if -1 <= nb_x <= 1 and -1 <= nb_y <= 1:
-    #             self.nb.append(pos_list.index((nb_x, nb_y)))
 
     def ischess(self):
         if self.size != -1:
@@ -55,12 +44,16 @@ class Game(object):
         self.init_winlist()
         self.chess_status = [9] * 9
         self.len = l
+        self.h = self.len * 4
+        self.w = self.h * 4 / 3
         self.size_list = [0.3 * l, 0.55 * l, 0.8 * l]
         self.player_list = ['red', 'blue']
         self.playernow = 0
         self.player_write = ['红', '蓝']
         self.player_chess = [[2,2,2], [2,2,2]]
         self.undolist = []
+        self.Tk = tk.Tk()
+        self.cv = tk.Canvas(self.Tk, bg='white', width=self.w, height=self.h)
 
     def init_grids(self):
         self.grids = []
@@ -141,6 +134,13 @@ class Game(object):
         else:
             return False
 
+    # def draw_bell(self):
+    #     x1, y1 = (self.w - self.len * 3) / 2, (self.h - self.len * 3) / 2
+    #     x2, y2 = x1 + self.len * 3, y1 + self.len * 3
+    #     for i in range(1, 3):
+    #         self.cv.create_line(x1, y1 + self.len * i, x2, y1 + self.len * i)
+    #         self.cv.create_line(x1 + self.len * i, y1, x1 + self.len * i, y2)
+
     def draw_bell(self):
         start_point = [(-1.5, 0.5, 0), (-1.5, -0.5, 0), (-0.5, -1.5, 90), (0.5, -1.5, 90)]
         for x, y, angle in start_point:
@@ -150,6 +150,10 @@ class Game(object):
             turtle.pendown()
             turtle.forward(3 * self.len)
         turtle.penup()
+
+    def draw_circle(self, id_):
+        grid = self.grids[id_]
+        
 
     def draw_circle(self, id_):
         grid = self.grids[id_]
@@ -290,4 +294,7 @@ def main():
             game.resetgame()
         
 if __name__ == '__main__':
-    main()
+    # main()
+    game = Game(150)
+    game.draw_bell()
+
