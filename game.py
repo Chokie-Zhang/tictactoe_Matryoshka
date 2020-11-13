@@ -7,18 +7,6 @@ class Grid(object):
         # self.init_nb()
         self.player = 9
         self.size = -1
-    
-    # def init_nb(self):
-    #     self.nb = []
-    #     pos_list = [(i, j) for j in list(range(-1, 2))[::-1] for i in range(-1, 2)]
-    #     x, y = self.pos
-    #     x_dir = [0, -1, 0, 1]
-    #     y_dir = [1, 0, -1, 0]
-    #     for xd, yd in zip(x_dir, y_dir):
-    #         nb_x = x + xd
-    #         nb_y = y + yd
-    #         if -1 <= nb_x <= 1 and -1 <= nb_y <= 1:
-    #             self.nb.append(pos_list.index((nb_x, nb_y)))
 
     def ischess(self):
         if self.size != -1:
