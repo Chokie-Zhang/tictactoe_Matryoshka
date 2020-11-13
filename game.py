@@ -134,22 +134,22 @@ class Game(object):
         else:
             return False
 
-    # def draw_bell(self):
-    #     x1, y1 = (self.w - self.len * 3) / 2, (self.h - self.len * 3) / 2
-    #     x2, y2 = x1 + self.len * 3, y1 + self.len * 3
-    #     for i in range(1, 3):
-    #         self.cv.create_line(x1, y1 + self.len * i, x2, y1 + self.len * i)
-    #         self.cv.create_line(x1 + self.len * i, y1, x1 + self.len * i, y2)
-
     def draw_bell(self):
-        start_point = [(-1.5, 0.5, 0), (-1.5, -0.5, 0), (-0.5, -1.5, 90), (0.5, -1.5, 90)]
-        for x, y, angle in start_point:
-            turtle.penup()
-            turtle.goto(x * self.len, y * self.len)
-            turtle.setheading(angle)
-            turtle.pendown()
-            turtle.forward(3 * self.len)
-        turtle.penup()
+        x1, y1 = (self.w - self.len * 3) / 2, (self.h - self.len * 3) / 2
+        x2, y2 = x1 + self.len * 3, y1 + self.len * 3
+        for i in range(1, 3):
+            self.cv.create_line(x1, y1 + self.len * i, x2, y1 + self.len * i)
+            self.cv.create_line(x1 + self.len * i, y1, x1 + self.len * i, y2)
+
+    # def draw_bell(self):
+    #     start_point = [(-1.5, 0.5, 0), (-1.5, -0.5, 0), (-0.5, -1.5, 90), (0.5, -1.5, 90)]
+    #     for x, y, angle in start_point:
+    #         turtle.penup()
+    #         turtle.goto(x * self.len, y * self.len)
+    #         turtle.setheading(angle)
+    #         turtle.pendown()
+    #         turtle.forward(3 * self.len)
+    #     turtle.penup()
 
     def draw_circle(self, id_):
         grid = self.grids[id_]
