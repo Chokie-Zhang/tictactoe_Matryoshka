@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['game.py'],
-             pathex=['C:\\Users\\Chokie\\Desktop\\help\\me'],
+             pathex=['C:\\Users\\Chokie\\Desktop\\help\\tictactoe_Matryoshka'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True )
+          console=False )
